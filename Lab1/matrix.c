@@ -6,10 +6,8 @@
 void matrix (int n, double mat[n][n])
 {
 	
-
 	int i,j;
 	
-
 	for(i=0; i < n; i++)
 	{
 		for(j=0;j< n; j++)
@@ -18,4 +16,17 @@ void matrix (int n, double mat[n][n])
 		}
 	}
 
+}
+
+void InitMatrix(int n, double mat[n][n])
+{
+	int i,j;
+
+	for(i=0; i < n; i++)
+	{
+		for(j=0;j< n; j++)
+		{
+			mat[i][j] = 0.0;
+		}
+	}
 }
