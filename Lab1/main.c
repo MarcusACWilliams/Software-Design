@@ -25,6 +25,7 @@ void main(void)
 	ijk(n,MatA,MatB,MatC);
 	gettimeofday(&end, NULL);
 	
+	  printf("\n\%ld\n%ld", end.tv_sec-start.tv_sec, end.tv_usec-start.tv_usec);
 	  printf("\n%ld\n\n", ((end.tv_sec * 1000000 + end.tv_usec)
 	  - (start.tv_sec * 1000000 + start.tv_usec)));
 		  

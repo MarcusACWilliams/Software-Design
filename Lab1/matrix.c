@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include "sd.h"
 
-//Create a N by N matrix, fill it with random numbers and return it to mat
+//Create a N by N matrix, fill it with random doubles and return it to mat
 void matrix (int n, double mat[n][n])
 {
 	
