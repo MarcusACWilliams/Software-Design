@@ -30,3 +30,41 @@ void InitMatrix(int n, double mat[n][n])
 		}
 	}
 }
+
+void PrintMatrix(int n,double Mat[n][n]){
+	
+	int i,j;
+	
+	if(n <= 10)
+	{
+		for(i=0; i < n; i++)
+		{
+			for(j=0;j<n; j++)
+			{
+				printf("%.3lf ", Mat[i][j]);
+			}
+			printf("\n");
+		}	
+			printf("\n");
+
+	/*	for(i=0; i < n; i++)
+		{
+			for(j=0;j<n; j++)
+			{
+				printf("%.3lf ", MatB[i][j]);
+			}
+			printf("\n");
+		}
+			printf("\n");
+
+		for(i=0; i < n; i++)
+		{
+			for(j=0;j<n; j++)
+			{
+				printf("%.3lf ", MatC[i][j]);
+			}
+			printf("\n");
+		} 
+	*/	
+	}
+}
