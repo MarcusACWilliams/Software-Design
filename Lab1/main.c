@@ -21,17 +21,8 @@ void main(void)
 	InitMatrix(n, MatC);
 	
 	gettimeofday(&start, NULL);
-	// i,j,k permutaion
-	for(i = 0; i < n; i++)
-	{
-		for(j = 0; j < n; j++)
-		{
-			for(k = 0; k < n; k++)
-			{
-				MatC[i][j] = MatC[i][j] + (MatA[i][k]*MatB[j][k]);
-			}
-		}
-	}
+	//Run i,j,k iteration of matrix multiplication
+	ijk(n,MatA,MatB,MatC);
 	gettimeofday(&end, NULL);
 	
 	  printf("\n%ld\n\n", ((end.tv_sec * 1000000 + end.tv_usec)

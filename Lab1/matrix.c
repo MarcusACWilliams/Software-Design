@@ -34,7 +34,7 @@ void InitMatrix(int n, double mat[n][n])
 }
 
 //Print a given matrix in Column row format
-void PrintMatrix(int n,double Mat[n][n]){
+void PrintMatrix(int n,double mat[n][n]){
 	
 	int i,j;
 	
@@ -44,10 +44,27 @@ void PrintMatrix(int n,double Mat[n][n]){
 		{
 			for(j=0;j<n; j++)
 			{
-				printf("%.3lf ", Mat[i][j]);
+				printf("%.3lf ", mat[i][j]);
 			}
 			printf("\n");
 		}	
 			printf("\n");	
+	}
+}
+
+	// i,j,k permutaion
+void ijk(int n, double MatA[n][n],double MatB[n][n],double MatC[n][n])
+{
+	int i,j,k;
+	
+	for(i = 0; i < n; i++)
+	{
+		for(j = 0; j < n; j++)
+		{
+			for(k = 0; k < n; k++)
+			{
+				MatC[i][j] = MatC[i][j] + (MatA[i][k]*MatB[j][k]);
+			}
+		}
 	}
 }
