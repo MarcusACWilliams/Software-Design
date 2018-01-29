@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include "sd.h"
 
+//Create a N by N matrix, fill it with random numbers and return it to mat
 void matrix (int n, double mat[n][n])
 {
 	
@@ -18,6 +19,7 @@ void matrix (int n, double mat[n][n])
 
 }
 
+//Initilize a matrix with all zeros
 void InitMatrix(int n, double mat[n][n])
 {
 	int i,j;
@@ -31,6 +33,7 @@ void InitMatrix(int n, double mat[n][n])
 	}
 }
 
+//Print a given matrix in Column row format
 void PrintMatrix(int n,double Mat[n][n]){
 	
 	int i,j;
@@ -45,26 +48,6 @@ void PrintMatrix(int n,double Mat[n][n]){
 			}
 			printf("\n");
 		}	
-			printf("\n");
-
-	/*	for(i=0; i < n; i++)
-		{
-			for(j=0;j<n; j++)
-			{
-				printf("%.3lf ", MatB[i][j]);
-			}
-			printf("\n");
-		}
-			printf("\n");
-
-		for(i=0; i < n; i++)
-		{
-			for(j=0;j<n; j++)
-			{
-				printf("%.3lf ", MatC[i][j]);
-			}
-			printf("\n");
-		} 
-	*/	
+			printf("\n");	
 	}
 }
