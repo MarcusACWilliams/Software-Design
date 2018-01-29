@@ -6,20 +6,37 @@
 
 void main(void)
 {
+	srand(time(NULL));
+	int i,j,k,n = 10;
+	double MatA[n][n], MatB[n][n],MatC[n][n];
 
-	double mat[10][10];
-	int i, j,n = 10;
+	matrix(n, MatA);
+	matrix(n, MatB);
 
-	matrix(10, mat);
+	// i,j,k permutaion
 
-	for(i=0; i < n; i++)
+	for(i)
+
+	if(n <= 10)
 	{
-		for(j=0;j<n; j++)
+		for(i=0; i < n; i++)
 		{
-			printf("%.3lf ", mat[i][j]);
-		}
-		printf("\n");
-	}	
+			for(j=0;j<n; j++)
+			{
+				printf("%.3lf ", MatA[i][j]);
+			}
+			printf("\n");
+		}	
+			printf("\n");
 
+		for(i=0; i < n; i++)
+		{
+			for(j=0;j<n; j++)
+			{
+				printf("%.3lf ", MatB[i][j]);
+			}
+			printf("\n");
+		}	
+	}
 
 }

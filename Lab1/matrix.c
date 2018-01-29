@@ -6,7 +6,7 @@
 void matrix (int n, double mat[n][n])
 {
 	
-	srand(time(NULL));
+
 	int i,j;
 	
 
