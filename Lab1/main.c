@@ -8,7 +8,7 @@
 void main(void)
 {
 	srand(time(NULL));
-	int i,j,k,n = 10;
+	int i,j,k, n = 10;
 	double MatA[n][n], MatB[n][n],MatC[n][n];
 	struct timeval start,end;
 
