@@ -5,7 +5,7 @@
 #include "sd.h"
 
 //Create a N by N matrix, fill it with random doubles and return it to mat
-void matrix (int n, double mat[n][n])
+void matrix (int n, double **mat)
 {
 	
 	int i,j;
@@ -21,7 +21,7 @@ void matrix (int n, double mat[n][n])
 }
 
 //Initilize a matrix with all zeros
-void InitMatrix(int n, double mat[n][n])
+void InitMatrix(int n, double **mat)
 {
 	int i,j;
 
@@ -35,7 +35,7 @@ void InitMatrix(int n, double mat[n][n])
 }
 
 //Print a given matrix in Column row format
-void PrintMatrix(int n,double mat[n][n]){
+void PrintMatrix(int n,double **mat){
 	
 	int i,j;
 	
@@ -54,7 +54,7 @@ void PrintMatrix(int n,double mat[n][n]){
 }
 
 	// i,j,k permutaion 1 of 6
-void ijk(int n, double MatA[n][n],double MatB[n][n],double MatC[n][n])
+void ijk(int n, double **MatA,double **MatB,double **MatC)
 {
 	int i,j,k;
 	struct timeval start,end;
@@ -79,7 +79,7 @@ void ijk(int n, double MatA[n][n],double MatB[n][n],double MatC[n][n])
 }
 
 	// i,k,j permutaion 2 of 6
-void ikj(int n, double MatA[n][n],double MatB[n][n],double MatC[n][n])
+void ikj(int n, double **MatA,double **MatB,double **MatC)
 {
 	int i,j,k;
 	struct timeval start,end;
@@ -102,7 +102,7 @@ void ikj(int n, double MatA[n][n],double MatB[n][n],double MatC[n][n])
 }
 
 	// j,i,k permutaion 3 of 6
-void jik(int n, double MatA[n][n],double MatB[n][n],double MatC[n][n])
+void jik(int n, double **MatA,double **MatB,double **MatC)
 {
 	int i,j,k;
 	struct timeval start,end;
@@ -125,7 +125,7 @@ void jik(int n, double MatA[n][n],double MatB[n][n],double MatC[n][n])
 }
 
 	// j,k,i permutaion 4 of 6
-void jki(int n, double MatA[n][n],double MatB[n][n],double MatC[n][n])
+void jki(int n, double **MatA,double **MatB,double **MatC)
 {
 	int i,j,k;
 	struct timeval start,end;
@@ -148,7 +148,7 @@ void jki(int n, double MatA[n][n],double MatB[n][n],double MatC[n][n])
 }
  
 	// k,i,j permutaion 5 of 6
-void kij(int n, double MatA[n][n],double MatB[n][n],double MatC[n][n])
+void kij(int n, double **MatA,double **MatB,double **MatC)
 {
 	int i,j,k;
 	struct timeval start,end;
@@ -171,7 +171,7 @@ void kij(int n, double MatA[n][n],double MatB[n][n],double MatC[n][n])
 }
 
 	// k,j,i permutaion 6 of 6
-void kji(int n, double MatA[n][n],double MatB[n][n],double MatC[n][n])
+void kji(int n, double **MatA,double **MatB,double **MatC)
 {
 	int i,j,k;
 	struct timeval start,end;
