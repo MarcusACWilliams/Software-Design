@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <time.h>
+#include <sys/time.h>
 #include <stdlib.h>
 #include "sd.h"
 
@@ -56,57 +57,79 @@ void PrintMatrix(int n,double mat[n][n]){
 void ijk(int n, double MatA[n][n],double MatB[n][n],double MatC[n][n])
 {
 	int i,j,k;
-	
+	struct timeval start,end;
+
+	gettimeofday(&start, NULL);	
+
 	for(i = 0; i < n; i++)
 	{
 		for(j = 0; j < n; j++)
 		{
 			for(k = 0; k < n; k++)
 			{
-				MatC[i][j] = MatC[i][j] + (MatA[i][k]*MatB[j][k]);
+				MatC[i][j] = MatC[i][j] + (MatA[i][k]*MatB[k][j]);
 			}
 		}
 	}
+
+	gettimeofday(&end, NULL);
+	
+	printf("\n%ld\n\n", ((end.tv_sec * 1000000 + end.tv_usec)
+	 - (start.tv_sec * 1000000 + start.tv_usec)));
 }
 
 	// i,k,j permutaion 2 of 6
 void ikj(int n, double MatA[n][n],double MatB[n][n],double MatC[n][n])
 {
 	int i,j,k;
-	
+	struct timeval start,end;
+	gettimeofday(&start, NULL);
+
 	for(i = 0; i < n; i++)
 	{
 		for(k = 0; k < n; k++)
 		{
 			for(j = 0; j < n; j++)
 			{
-				MatC[i][k] = MatC[i][k] + (MatA[i][j]*MatB[k][j]);
+				MatC[i][j] = MatC[i][j] + (MatA[i][k]*MatB[k][j]);
 			}
 		}
 	}
+	gettimeofday(&end, NULL);
+	
+	printf("\n%ld\n\n", ((end.tv_sec * 1000000 + end.tv_usec)
+	 - (start.tv_sec * 1000000 + start.tv_usec)));
 }
 
 	// j,i,k permutaion 3 of 6
 void jik(int n, double MatA[n][n],double MatB[n][n],double MatC[n][n])
 {
 	int i,j,k;
-	
+	struct timeval start,end;
+	gettimeofday(&start, NULL);
+
 	for(j = 0; j < n; j++)
 	{
 		for(i = 0; i < n; i++)
 		{
 			for(k = 0; k < n; k++)
 			{
-				MatC[j][i] = MatC[j][i] + (MatA[j][k]*MatB[i][k]);
+				MatC[i][j] = MatC[i][j] + (MatA[i][k]*MatB[k][j]);
 			}
 		}
 	}
+	gettimeofday(&end, NULL);
+	
+	printf("\n%ld\n\n", ((end.tv_sec * 1000000 + end.tv_usec)
+	 - (start.tv_sec * 1000000 + start.tv_usec)));
 }
 
 	// j,k,i permutaion 4 of 6
 void jki(int n, double MatA[n][n],double MatB[n][n],double MatC[n][n])
 {
 	int i,j,k;
+	struct timeval start,end;
+	gettimeofday(&start, NULL);
 	
 	for(j = 0; j < n; j++)
 	{
@@ -114,16 +137,22 @@ void jki(int n, double MatA[n][n],double MatB[n][n],double MatC[n][n])
 		{
 			for(i = 0; i < n; i++)
 			{
-				MatC[j][k] = MatC[j][k] + (MatA[j][i]*MatB[k][i]);
+				MatC[i][j] = MatC[i][j] + (MatA[i][k]*MatB[k][j]);
 			}
 		}
 	}
+	gettimeofday(&end, NULL);
+	
+	printf("\n%ld\n\n", ((end.tv_sec * 1000000 + end.tv_usec)
+	 - (start.tv_sec * 1000000 + start.tv_usec)));
 }
  
 	// k,i,j permutaion 5 of 6
 void kij(int n, double MatA[n][n],double MatB[n][n],double MatC[n][n])
 {
 	int i,j,k;
+	struct timeval start,end;
+	gettimeofday(&start, NULL);
 	
 	for(k = 0; k < n; k++)
 	{
@@ -131,16 +160,22 @@ void kij(int n, double MatA[n][n],double MatB[n][n],double MatC[n][n])
 		{
 			for(j = 0; j < n; j++)
 			{
-				MatC[k][i] = MatC[k][i] + (MatA[k][j]*MatB[i][j]);
+				MatC[i][j] = MatC[i][j] + (MatA[i][k]*MatB[k][j]);
 			}
 		}
 	}
+	gettimeofday(&end, NULL);
+	
+	printf("\n%ld\n\n", ((end.tv_sec * 1000000 + end.tv_usec)
+	 - (start.tv_sec * 1000000 + start.tv_usec)));
 }
 
 	// k,j,i permutaion 6 of 6
 void kji(int n, double MatA[n][n],double MatB[n][n],double MatC[n][n])
 {
 	int i,j,k;
+	struct timeval start,end;
+	gettimeofday(&start, NULL);
 	
 	for(k = 0; k < n; k++)
 	{
@@ -148,8 +183,12 @@ void kji(int n, double MatA[n][n],double MatB[n][n],double MatC[n][n])
 		{
 			for(i = 0; i < n; i++)
 			{
-				MatC[k][j] = MatC[k][j] + (MatA[k][i]*MatB[j][i]);
+				MatC[i][j] = MatC[i][j] + (MatA[i][k]*MatB[k][j]);
 			}
 		}
 	}
+	gettimeofday(&end, NULL);
+	
+	printf("\n%ld\n\n", ((end.tv_sec * 1000000 + end.tv_usec)
+	 - (start.tv_sec * 1000000 + start.tv_usec)));
 }
