@@ -54,13 +54,13 @@ void PrintMatrix(int n,double **mat){
 }
 
 	// i,j,k permutaion 1 of 6
-void ijk(int n, double **MatA,double **MatB,double **MatC)
+int ijk(int n, double **MatA,double **MatB,double **MatC)
 {
-	int i,j,k;
+	int i,j,k,time;
 	struct timeval start,end;
-
-	gettimeofday(&start, NULL);	
-
+	
+	gettimeofday(&start, NULL);
+	
 	for(i = 0; i < n; i++)
 	{
 		for(j = 0; j < n; j++)
@@ -71,17 +71,21 @@ void ijk(int n, double **MatA,double **MatB,double **MatC)
 			}
 		}
 	}
-
+	
 	gettimeofday(&end, NULL);
 	
-	printf("\n%ld\n\n", ((end.tv_sec * 1000000 + end.tv_usec)
-	 - (start.tv_sec * 1000000 + start.tv_usec)));
+	// printf("\n%ld\n\n", ((end.tv_sec * 1000000 + end.tv_usec)
+	 // - (start.tv_sec * 1000000 + start.tv_usec)));
+	
+	time = ((end.tv_sec * 1000000 + end.tv_usec) - (start.tv_sec * 1000000 + start.tv_usec));
+	
+	return time;
 }
 
 	// i,k,j permutaion 2 of 6
-void ikj(int n, double **MatA,double **MatB,double **MatC)
+int ikj(int n, double **MatA,double **MatB,double **MatC)
 {
-	int i,j,k;
+	int i,j,k, time;
 	struct timeval start,end;
 	gettimeofday(&start, NULL);
 
@@ -97,14 +101,18 @@ void ikj(int n, double **MatA,double **MatB,double **MatC)
 	}
 	gettimeofday(&end, NULL);
 	
-	printf("\n%ld\n\n", ((end.tv_sec * 1000000 + end.tv_usec)
-	 - (start.tv_sec * 1000000 + start.tv_usec)));
+	// printf("\n%ld\n\n", ((end.tv_sec * 1000000 + end.tv_usec)
+	 // - (start.tv_sec * 1000000 + start.tv_usec)));
+	 
+		time = ((end.tv_sec * 1000000 + end.tv_usec) - (start.tv_sec * 1000000 + start.tv_usec));
+	 
+	 	return time;
 }
 
 	// j,i,k permutaion 3 of 6
-void jik(int n, double **MatA,double **MatB,double **MatC)
+int jik(int n, double **MatA,double **MatB,double **MatC)
 {
-	int i,j,k;
+	int i,j,k,time;
 	struct timeval start,end;
 	gettimeofday(&start, NULL);
 
@@ -120,14 +128,18 @@ void jik(int n, double **MatA,double **MatB,double **MatC)
 	}
 	gettimeofday(&end, NULL);
 	
-	printf("\n%ld\n\n", ((end.tv_sec * 1000000 + end.tv_usec)
-	 - (start.tv_sec * 1000000 + start.tv_usec)));
+	// printf("\n%ld\n\n", ((end.tv_sec * 1000000 + end.tv_usec)
+	 // - (start.tv_sec * 1000000 + start.tv_usec)));
+	 
+	 	time = ((end.tv_sec * 1000000 + end.tv_usec) - (start.tv_sec * 1000000 + start.tv_usec));
+	 
+	 	return time;
 }
 
 	// j,k,i permutaion 4 of 6
-void jki(int n, double **MatA,double **MatB,double **MatC)
+int jki(int n, double **MatA,double **MatB,double **MatC)
 {
-	int i,j,k;
+	int i,j,k,time;
 	struct timeval start,end;
 	gettimeofday(&start, NULL);
 	
@@ -143,14 +155,18 @@ void jki(int n, double **MatA,double **MatB,double **MatC)
 	}
 	gettimeofday(&end, NULL);
 	
-	printf("\n%ld\n\n", ((end.tv_sec * 1000000 + end.tv_usec)
-	 - (start.tv_sec * 1000000 + start.tv_usec)));
+	// printf("\n%ld\n\n", ((end.tv_sec * 1000000 + end.tv_usec)
+	 // - (start.tv_sec * 1000000 + start.tv_usec)));
+	 
+		time = ((end.tv_sec * 1000000 + end.tv_usec) - (start.tv_sec * 1000000 + start.tv_usec));
+		
+	 	return time;
 }
  
 	// k,i,j permutaion 5 of 6
-void kij(int n, double **MatA,double **MatB,double **MatC)
+int kij(int n, double **MatA,double **MatB,double **MatC)
 {
-	int i,j,k;
+	int i,j,k,time;
 	struct timeval start,end;
 	gettimeofday(&start, NULL);
 	
@@ -166,14 +182,18 @@ void kij(int n, double **MatA,double **MatB,double **MatC)
 	}
 	gettimeofday(&end, NULL);
 	
-	printf("\n%ld\n\n", ((end.tv_sec * 1000000 + end.tv_usec)
-	 - (start.tv_sec * 1000000 + start.tv_usec)));
+	// printf("\n%ld\n\n", ((end.tv_sec * 1000000 + end.tv_usec)
+	 // - (start.tv_sec * 1000000 + start.tv_usec)));
+	 
+	time = ((end.tv_sec * 1000000 + end.tv_usec) - (start.tv_sec * 1000000 + start.tv_usec));	 
+	 
+	 	return time;
 }
 
 	// k,j,i permutaion 6 of 6
-void kji(int n, double **MatA,double **MatB,double **MatC)
+int kji(int n, double **MatA,double **MatB,double **MatC)
 {
-	int i,j,k;
+	int i,j,k,time;
 	struct timeval start,end;
 	gettimeofday(&start, NULL);
 	
@@ -189,6 +209,10 @@ void kji(int n, double **MatA,double **MatB,double **MatC)
 	}
 	gettimeofday(&end, NULL);
 	
-	printf("\n%ld\n\n", ((end.tv_sec * 1000000 + end.tv_usec)
-	 - (start.tv_sec * 1000000 + start.tv_usec)));
+	// printf("\n%ld\n\n", ((end.tv_sec * 1000000 + end.tv_usec)
+	 // - (start.tv_sec * 1000000 + start.tv_usec)));
+	 
+	 	time = ((end.tv_sec * 1000000 + end.tv_usec) - (start.tv_sec * 1000000 + start.tv_usec));
+	 
+	 	return time;
 }

@@ -8,12 +8,14 @@
 void main(void)
 {
 	srand(time(NULL));
-	int i,j,k, n = 500;
+	int i,j,k,iter = 25, n = 250;
+	int val = 0, avg = 0;
 //	double MatA[n][n], MatB[n][n],Mat1[n][n],Mat2[n][n],Mat3[n][n],Mat4[n][n],Mat5[n][n],Mat6[n][n];
 
-    double **MatA = (double **)malloc(n * sizeof(double *));
+	
+    double **MatA = (double **)malloc(n * sizeof(double *));//This line determines the number of columns in the matrix (N)
     for (i=0; i<n; i++)
-         MatA[i] = (double *)malloc(n * sizeof(double));
+         MatA[i] = (double *)malloc(n * sizeof(double));//This line determines the number of rows for every column in the matrix (M)
 	 
 	double **MatB = (double **)malloc(n * sizeof(double *));
     for (i=0; i<n; i++)
@@ -56,24 +58,69 @@ void main(void)
 
 
 	//Run i,j,k iteration of matrix multiplication	
-	ijk(n,MatA,MatB,Mat1);
-	 PrintMatrix(n, Mat1);
+	for(i =0;i<iter;i++)
+	{
+	val = val + ijk(n,MatA,MatB,Mat1);
+	PrintMatrix(n, Mat1);
+	}
+	avg = (avg + val)/iter;
+	printf("Average calculation time= %d \n", avg);
+	avg = 0; val = 0;
+	
+	
+	
 	//Run i,j,k iteration of matrix multiplication	
-	ikj(n,MatA,MatB,Mat2);
-	  PrintMatrix(n, Mat2);
-	//Run i,j,k iteration of matrix multiplication	
-	jik(n,MatA,MatB,Mat3);
+	for(i =0;i<iter;i++)
+	{
+	val = val + ikj(n,MatA,MatB,Mat2);
+	PrintMatrix(n, Mat2);
+	}
+	avg = (avg + val)/iter;
+	printf("Average calculation time= %d \n", avg);
+	avg = 0; val = 0;
+	
+	//Run i,j,k iteration of matrix multiplication
+	for(i =0;i<iter;i++)
+	{	
+	val = val + jik(n,MatA,MatB,Mat3);
 	  PrintMatrix(n, Mat3);
-	//Run i,j,k iteration of matrix multiplication	
-	jki(n,MatA,MatB,Mat4);
+	}
+	
+		avg = (avg + val)/iter;
+	printf("Average calculation time= %d \n", avg);
+	avg = 0; val = 0;
+	
+	//Run i,j,k iteration of matrix multiplication
+	for(i =0;i<iter;i++)
+	{	
+	val = val + jki(n,MatA,MatB,Mat4);
 	  PrintMatrix(n, Mat4);
-	//Run i,j,k iteration of matrix multiplication	
-	kij(n,MatA,MatB,Mat5);
+	}
+	
+	avg = (avg + val)/iter;
+	printf("Average calculation time= %d \n", avg);
+	avg = 0; val = 0;
+	
+	//Run i,j,k iteration of matrix multiplication
+	for(i =0;i<iter;i++)
+	{	
+	val = val + kij(n,MatA,MatB,Mat5);
 	  PrintMatrix(n, Mat5);
-	//Run i,j,k iteration of matrix multiplication	
-	kji(n,MatA,MatB,Mat6);
+	}
+		avg = (avg + val)/iter;
+	printf("Average calculation time= %d \n", avg);
+	avg = 0; val = 0;
+	
+	//Run i,j,k iteration of matrix multiplication
+	for(i =0;i<iter;i++)
+	{	
+	val = val + kji(n,MatA,MatB,Mat6);
 	  PrintMatrix(n, Mat6);
-	  
+	} 
+		avg = (avg + val)/6;
+	printf("Average calculation time= %d \n", avg);
+	avg = 0; val = 0;
+	
 	free(Mat1);free(Mat2);free(Mat3);free(Mat4);free(Mat5);free(Mat6);
 	free(MatA);free(MatB);
 }
