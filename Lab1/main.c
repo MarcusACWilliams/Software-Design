@@ -5,13 +5,24 @@
 #include "sd.h"
 
 
-void main(void)
+void main(int argc, char *argv[])
 {
 	srand(time(NULL));
-	int i,j,k,iter = 25, n = 250;
+	int i,j,k,iter = 10, n = 10;
 	int val = 0, avg = 0;
+	char *ptr;
+	
 //	double MatA[n][n], MatB[n][n],Mat1[n][n],Mat2[n][n],Mat3[n][n],Mat4[n][n],Mat5[n][n],Mat6[n][n];
 
+	if (argc > 1)
+	{
+		
+		n  = (int) strtol(argv[1], &ptr, 10);
+		if (argc >2)
+		{
+			iter = (int) strtol(argv[2],&ptr, 10);
+		}
+	}
 	
     double **MatA = (double **)malloc(n * sizeof(double *));//This line determines the number of columns in the matrix (N)
     for (i=0; i<n; i++)
