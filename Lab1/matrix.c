@@ -26,9 +26,13 @@ double **matrix(int n)
 }
 
 //Initilize a matrix with all zeros
-void InitMatrix(int n, double **mat)
+double **InitMatrix(int n)
 {
 	int i,j;
+
+		double **mat = (double **)malloc(n * sizeof(double *));
+    for (i=0; i<n; i++)
+         mat[i] = (double *)malloc(n * sizeof(double));
 
 	for(i=0; i < n; i++)
 	{
@@ -37,6 +41,8 @@ void InitMatrix(int n, double **mat)
 			mat[i][j] = 0.0;
 		}
 	}
+
+		return(mat);
 }
 
 //Print a given matrix in Column row format

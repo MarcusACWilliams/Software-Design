@@ -1,7 +1,7 @@
 
 
 double **matrix (int n);
-void InitMatrix(int n, double **mat);
+double **InitMatrix(int n);
 void PrintMatrix(int n,double **mat);
 int ijk(int n, double **MatA,double **MatB,double **MatC);
 int ikj(int n, double **MatA,double **MatB,double **MatC);
