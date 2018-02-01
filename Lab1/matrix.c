@@ -5,10 +5,14 @@
 #include "sd.h"
 
 //Create a N by N matrix, fill it with random doubles and return it to mat
-void matrix (int n, double **mat)
+double **matrix(int n)
 {
 	
 	int i,j;
+	
+		double **mat = (double **)malloc(n * sizeof(double *));
+    for (i=0; i<n; i++)
+         mat[i] = (double *)malloc(n * sizeof(double));
 	
 	for(i=0; i < n; i++)
 	{
@@ -18,6 +22,7 @@ void matrix (int n, double **mat)
 		}
 	}
 
+		return(mat);
 }
 
 //Initilize a matrix with all zeros

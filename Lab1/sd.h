@@ -1,6 +1,6 @@
 
 
-void matrix (int n,double **mat);
+double **matrix (int n);
 void InitMatrix(int n, double **mat);
 void PrintMatrix(int n,double **mat);
 int ijk(int n, double **MatA,double **MatB,double **MatC);

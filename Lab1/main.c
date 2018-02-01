@@ -12,11 +12,11 @@ void main(int argc, char *argv[])
 	int val = 0, avg = 0;
 	char *ptr;
 	
+	double ** MatA;
 //	double MatA[n][n], MatB[n][n],Mat1[n][n],Mat2[n][n],Mat3[n][n],Mat4[n][n],Mat5[n][n],Mat6[n][n];
 
 	if (argc > 1)
 	{
-		
 		n  = (int) strtol(argv[1], &ptr, 10);
 		if (argc >2)
 		{
@@ -24,9 +24,9 @@ void main(int argc, char *argv[])
 		}
 	}
 	
-    double **MatA = (double **)malloc(n * sizeof(double *));//This line determines the number of columns in the matrix (N)
-    for (i=0; i<n; i++)
-         MatA[i] = (double *)malloc(n * sizeof(double));//This line determines the number of rows for every column in the matrix (M)
+    // double **MatA = (double **)malloc(n * sizeof(double *));//This line determines the number of columns in the matrix (N)
+    // for (i=0; i<n; i++)
+         // MatA[i] = (double *)malloc(n * sizeof(double));//This line determines the number of rows for every column in the matrix (M)
 	 
 	double **MatB = (double **)malloc(n * sizeof(double *));
     for (i=0; i<n; i++)
@@ -58,8 +58,8 @@ void main(int argc, char *argv[])
 	 
 	//Matrix Function returns a N by N square matrix. Below it's called twice 
 	//and will store our two text matrices for later calculations
-	matrix(n, MatA);
-	matrix(n, MatB);
+	MatA = matrix(n);
+	//matrix(n, MatB);
 	
 	//This Function initializes the C matrcies with zeros
 	InitMatrix(n, Mat1);//InitMatrix(n, Mat2);InitMatrix(n, Mat3);InitMatrix(n, Mat4);InitMatrix(n, Mat5);InitMatrix(n, Mat6);
@@ -80,57 +80,57 @@ void main(int argc, char *argv[])
 	
 	
 	
-	//Run i,j,k iteration of matrix multiplication	
-	for(i =0;i<iter;i++)
-	{
-	val = val + ikj(n,MatA,MatB,Mat2);
-	PrintMatrix(n, Mat2);
-	}
-	avg = (avg + val)/iter;
-	printf("Average calculation time= %d \n", avg);
-	avg = 0; val = 0;
+	// //Run i,j,k iteration of matrix multiplication	
+	// for(i =0;i<iter;i++)
+	// {
+	// val = val + ikj(n,MatA,MatB,Mat2);
+	// PrintMatrix(n, Mat2);
+	// }
+	// avg = (avg + val)/iter;
+	// printf("Average calculation time= %d \n", avg);
+	// avg = 0; val = 0;
 	
-	//Run i,j,k iteration of matrix multiplication
-	for(i =0;i<iter;i++)
-	{	
-	val = val + jik(n,MatA,MatB,Mat3);
-	  PrintMatrix(n, Mat3);
-	}
+	// //Run i,j,k iteration of matrix multiplication
+	// for(i =0;i<iter;i++)
+	// {	
+	// val = val + jik(n,MatA,MatB,Mat3);
+	  // PrintMatrix(n, Mat3);
+	// }
 	
-		avg = (avg + val)/iter;
-	printf("Average calculation time= %d \n", avg);
-	avg = 0; val = 0;
+		// avg = (avg + val)/iter;
+	// printf("Average calculation time= %d \n", avg);
+	// avg = 0; val = 0;
 	
-	//Run i,j,k iteration of matrix multiplication
-	for(i =0;i<iter;i++)
-	{	
-	val = val + jki(n,MatA,MatB,Mat4);
-	  PrintMatrix(n, Mat4);
-	}
+	// //Run i,j,k iteration of matrix multiplication
+	// for(i =0;i<iter;i++)
+	// {	
+	// val = val + jki(n,MatA,MatB,Mat4);
+	  // PrintMatrix(n, Mat4);
+	// }
 	
-	avg = (avg + val)/iter;
-	printf("Average calculation time= %d \n", avg);
-	avg = 0; val = 0;
+	// avg = (avg + val)/iter;
+	// printf("Average calculation time= %d \n", avg);
+	// avg = 0; val = 0;
 	
-	//Run i,j,k iteration of matrix multiplication
-	for(i =0;i<iter;i++)
-	{	
-	val = val + kij(n,MatA,MatB,Mat5);
-	  PrintMatrix(n, Mat5);
-	}
-		avg = (avg + val)/iter;
-	printf("Average calculation time= %d \n", avg);
-	avg = 0; val = 0;
+	// //Run i,j,k iteration of matrix multiplication
+	// for(i =0;i<iter;i++)
+	// {	
+	// val = val + kij(n,MatA,MatB,Mat5);
+	  // PrintMatrix(n, Mat5);
+	// }
+		// avg = (avg + val)/iter;
+	// printf("Average calculation time= %d \n", avg);
+	// avg = 0; val = 0;
 	
-	//Run i,j,k iteration of matrix multiplication
-	for(i =0;i<iter;i++)
-	{	
-	val = val + kji(n,MatA,MatB,Mat6);
-	  PrintMatrix(n, Mat6);
-	} 
-		avg = (avg + val)/6;
-	printf("Average calculation time= %d \n", avg);
-	avg = 0; val = 0;
+	// //Run i,j,k iteration of matrix multiplication
+	// for(i =0;i<iter;i++)
+	// {	
+	// val = val + kji(n,MatA,MatB,Mat6);
+	  // PrintMatrix(n, Mat6);
+	// } 
+		// avg = (avg + val)/6;
+	// printf("Average calculation time= %d \n", avg);
+	// avg = 0; val = 0;
 	
 	free(Mat1);free(Mat2);free(Mat3);free(Mat4);free(Mat5);free(Mat6);
 	free(MatA);free(MatB);
