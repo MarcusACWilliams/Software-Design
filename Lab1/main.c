@@ -8,12 +8,10 @@
 void main(int argc, char *argv[])
 {
 	srand(time(NULL));
-	int i,j,k,iter = 1, n = 10;
-	int val = 0, avg = 0;
+	int i,j,k,iter = 1, n = 10, val = 0, avg = 0;
 	char *ptr;
-	
 	double ** MatA, ** MatB,** Mat1,** Mat2,** Mat3,** Mat4,** Mat5,** Mat6;
-//	double MatA[n][n], MatB[n][n],Mat1[n][n],Mat2[n][n],Mat3[n][n],Mat4[n][n],Mat5[n][n],Mat6[n][n];
+	FILE *f;
 
 	if (argc > 1)
 	{
@@ -23,6 +21,12 @@ void main(int argc, char *argv[])
 			iter = (int) strtol(argv[2],&ptr, 10);
 		}
 	}
+
+	f = fopen("Lab1.log", "a+");
+	if (f== NULL){printf("Error. File Not Created");}
+
+	fprintf(f, "%d\t",n);
+
 	 
 	//Matrix Function returns a N by N square matrix. Below it's called twice 
 	//and will store our two text matrices for later calculations
@@ -35,7 +39,6 @@ void main(int argc, char *argv[])
 	//Uncomment line below to verify that you are starting with clean initialized matricies.
 	//PrintMatrix(n, Mat1);PrintMatrix(n, Mat2);PrintMatrix(n, Mat3);PrintMatrix(n, Mat4);PrintMatrix(n, Mat5);PrintMatrix(n, Mat6);
 
-
 	//Run i,j,k iteration of matrix multiplication	
 	for(i =0;i<iter;i++)
 	{
@@ -43,7 +46,9 @@ void main(int argc, char *argv[])
 	PrintMatrix(n, Mat1);
 	}
 	avg = (avg + val)/iter;
-	printf("Average calculation time= %d \n", avg);
+	fprintf(f, "%d\t",avg);
+	//fprintf(f, "Average IJK calculation time for %d by %d Matrix= %d \n", n, n,avg  );
+	//printf("Average calculation time= %d \n", avg);
 	avg = 0; val = 0;
 	
 	
@@ -54,7 +59,9 @@ void main(int argc, char *argv[])
 	PrintMatrix(n, Mat2);
 	}
 	avg = (avg + val)/iter;
-	printf("Average calculation time= %d \n", avg);
+	fprintf(f, "%d\t",avg);
+	//fprintf(f, "Average IKJ calculation time for %d by %d Matrix= %d \n", n, n,avg  );
+	//printf("Average calculation time= %d \n", avg);
 	avg = 0; val = 0;
 	
 	//Run i,j,k iteration of matrix multiplication
@@ -65,7 +72,9 @@ void main(int argc, char *argv[])
 	}
 	
 		avg = (avg + val)/iter;
-	printf("Average calculation time= %d \n", avg);
+	fprintf(f, "%d\t",avg);
+	//fprintf(f, "Average JIK calculation time for %d by %d Matrix= %d \n", n, n,avg  );
+	//printf("Average calculation time= %d \n", avg);
 	avg = 0; val = 0;
 	
 	//Run i,j,k iteration of matrix multiplication
@@ -76,7 +85,9 @@ void main(int argc, char *argv[])
 	}
 	
 	avg = (avg + val)/iter;
-	printf("Average calculation time= %d \n", avg);
+	fprintf(f, "%d\t",avg);
+	//fprintf(f, "Average JKI calculation time for %d by %d Matrix= %d \n", n, n,avg  );
+	//printf("Average calculation time= %d \n", avg);
 	avg = 0; val = 0;
 	
 	//Run i,j,k iteration of matrix multiplication
@@ -86,7 +97,9 @@ void main(int argc, char *argv[])
 	  PrintMatrix(n, Mat5);
 	}
 		avg = (avg + val)/iter;
-	printf("Average calculation time= %d \n", avg);
+	fprintf(f, "%d\t",avg);
+	//fprintf(f, "Average KIJ calculation time for %d by %d Matrix= %d \n", n, n,avg  );
+	//printf("Average calculation time= %d \n", avg);
 	avg = 0; val = 0;
 	
 	//Run i,j,k iteration of matrix multiplication
@@ -96,9 +109,12 @@ void main(int argc, char *argv[])
 	  PrintMatrix(n, Mat6);
 	} 
 		avg = (avg + val)/6;
-	printf("Average calculation time= %d \n", avg);
+	fprintf(f, "%d\t",avg);
+	//fprintf(f, "Average KJI calculation time for %d by %d Matrix= %d \n", n, n,avg  );
+	//printf("Average calculation time= %d \n", avg);
 	avg = 0; val = 0;
 
+	fprintf(f, "\n");
 
 	//Free all memory allocated to matrices created before exiting
 	free(MatA);free(MatB);
