@@ -8,7 +8,7 @@
 void main(int argc, char *argv[])
 {
 	srand(time(NULL));
-	int i,j,k,iter = 5, n = 50, val = 0, avg = 0;
+	int i,j,k,iter = 5, n = 20, val = 0, avg = 0;
 	char *ptr;
 	double ** MatA, ** MatB,** Mat1,** Mat2,** Mat3,** Mat4,** Mat5,** Mat6;
 	FILE *f;
@@ -25,8 +25,6 @@ void main(int argc, char *argv[])
 	f = fopen("Lab1.log", "a+");
 	if (f== NULL){printf("Error. File Not Created");}
 
-
-for(n = 50; n < 300; n++){
 
 	fprintf(f, "%d\t",n);
 
@@ -122,5 +120,4 @@ for(n = 50; n < 300; n++){
 	//Free all memory allocated to matrices created before exiting
 	free(MatA);free(MatB);
 	free(Mat1);free(Mat2);free(Mat3);free(Mat4);free(Mat5);free(Mat6);
-	}
 }
