@@ -2,11 +2,11 @@
 
 EXEC=main
 SRC=main.c
-COUNTER=250
+COUNTER=9
 
-while [ $COUNTER -lt 251 ]; do
+while [ $COUNTER -lt 30 ]; do
 
-	./main COUNTER 1
+	./main $COUNTER 1
 
-	let COUNTER=COUNTER+1
+	let COUNTER=$COUNTER+1
 done
