@@ -4,7 +4,7 @@ EXEC=main
 SRC=main.c
 COUNTER=50
 
-while [ $COUNTER -lt 550 ]; do
+while [ $COUNTER -lt 3000 ]; do
 
 	./main $COUNTER 1
 
